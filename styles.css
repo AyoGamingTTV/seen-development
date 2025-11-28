@@ -1,0 +1,42 @@
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#111;
+  color:#eee;
+  transition:background 0.3s, color 0.3s;
+}
+body.light{
+  background:#f5f5f5;
+  color:#111;
+}
+header{
+  display:flex;
+  justify-content:space-between;
+  padding:10px 20px;
+  backdrop-filter:blur(10px);
+}
+.logo{height:50px;}
+.card-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+  padding:20px;
+}
+.card{
+  background:#222;
+  padding:20px;
+  border-radius:10px;
+  transition:transform 0.3s;
+}
+body.light .card{background:#fff;}
+.card:hover{transform:translateY(-5px);}
+.shop-button{
+  display:block;
+  width:max-content;
+  margin:20px auto;
+  padding:10px 20px;
+  background:#4af;
+  color:#000;
+  border-radius:8px;
+  text-decoration:none;
+}
