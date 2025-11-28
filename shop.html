@@ -16,10 +16,19 @@
   <button id="themeToggle">🌓</button>
 </header>
 
-<section class="shop-list">
-  <h2>Products</h2>
-  <p>Stripe integration can be added here.</p>
-</section>
+<button id="buy-lawn">Buy Lawn Care – $25</button>
+
+<script>
+document.getElementById("buy-lawn").onclick = async () => {
+  const res = await fetch("https://your-vercel-project.vercel.app/api/create-checkout-session", {
+    method: "POST"
+  });
+
+  const data = await res.json();
+  window.location = data.url;
+};
+</script>
+
 
 <script src="script.js"></script>
 </body>
