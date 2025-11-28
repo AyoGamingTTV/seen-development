@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seen Development</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #f7f7f7; }
+    header { background: #0b0e1a; color: white; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; }
+    header h1 { margin: 0; font-size: 28px; }
+    nav a { color: white; margin-left: 20px; text-decoration: none; font-weight: bold; }
+    .hero { background: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat; padding: 120px 40px; color: white; text-shadow: 0 0 10px rgba(0,0,0,0.7); }
+    .hero h2 { font-size: 48px; margin: 0; }
+    .hero p { font-size: 20px; max-width: 600px; }
+    section { padding: 60px 40px; max-width: 1000px; margin: auto; }
+    h3 { font-size: 30px; margin-bottom: 20px; }
+    .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    .shop-item { border: 1px solid #ddd; padding: 20px; border-radius: 12px; background: #fff; }
+    .shop-item button { padding: 10px 20px; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; background: #0b0e1a; color: white; }
+    footer { background: #0b0e1a; color: white; padding: 20px 40px; text-align: center; margin-top: 40px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Seen Development</h1>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#shop">Shop</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>See the Unseen — Because You Matter</h2>
+    <p>Your trusted development company for lawn care, snow removal, home assistance, and top-tier web & coding solutions.</p>
+  </section>
+
+  <section id="services">
+    <h3>Our Services</h3>
+    <div class="services">
+      <div class="card">
+        <h4>Lawn Services</h4>
+        <p>Professional lawn care, trimming, cleanup, and seasonal maintenance.</p>
+      </div>
+      <div class="card">
+        <h4>Snow Removal</h4>
+        <p>Reliable and fast snow clearing for residential and small commercial clients.</p>
+      </div>
+      <div class="card">
+        <h4>Home Assistance</h4>
+        <p>Need help moving items or reorganizing your home? We're here to help.</p>
+      </div>
+      <div class="card">
+        <h4>Web Services</h4>
+        <p>Custom websites, modern designs, SEO, and maintenance.</p>
+      </div>
+      <div class="card">
+        <h4>Coding Services</h4>
+        <p>Professional development support for coding projects and custom software.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="shop">
+    <h3>Shop</h3>
+    <p>Checkout is powered by Stripe using secure payment links.</p>
+    <div class="services">
+      <div class="shop-item">
+        <h4>Lawn Service – Standard Visit</h4>
+        <p>$40 per visit</p>
+        <button onclick="window.location.href='YOUR_STRIPE_PAYMENT_LINK_1'">Buy Now</button>
+      </div>
+      <div class="shop-item">
+        <h4>Snow Removal – Single Visit</h4>
+        <p>$50 per clearing</p>
+        <button onclick="window.location.href='YOUR_STRIPE_PAYMENT_LINK_2'">Buy Now</button>
+      </div>
+      <div class="shop-item">
+        <h4>1-Hour Web or Coding Support</h4>
+        <p>$60 per hour</p>
+        <button onclick="window.location.href='YOUR_STRIPE_PAYMENT_LINK_3'">Buy Now</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h3>Contact Us</h3>
+    <p>Email: support@seendevelopment.com (placeholder)</p>
+  </section>
+
+  <footer>
+    © 2025 Seen Development — See the Unseen Because You Matter
+  </footer>
+</body>
+</html>
