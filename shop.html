@@ -1,35 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shop - Seen Development</title>
-<link rel="icon" type="image/x-icon" href="favicon.ico" />
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>Shop - Seen Development</title>
+  <link rel="icon" type="image/png" href="seendevelop-logo.png">
 </head>
 <body>
-<header>
-  <div class="logo-area">
-    <img src="assets/logo.png" class="logo" alt="Seen Development Logo">
-    <h1>Shop</h1>
-  </div>
-  <button id="themeToggle">🌓</button>
-</header>
+  <h1>Shop</h1>
+  <button onclick="checkout('price_LAWN_PLACEHOLDER')">Lawn Care – $25</button>
+  <button onclick="checkout('price_SNOW_PLACEHOLDER')">Snow Removal – $20</button>
+  <button onclick="checkout('price_MOVE_PLACEHOLDER')">Move Assistance – $40</button>
 
-<button id="buy-lawn">Buy Lawn Care – $25</button>
-
-<script>
-document.getElementById("buy-lawn").onclick = async () => {
-  const res = await fetch("https://your-vercel-project.vercel.app/api/create-checkout-session", {
-    method: "POST"
-  });
-
-  const data = await res.json();
-  window.location = data.url;
-};
-</script>
-
-
-<script src="script.js"></script>
+  <script src="https://js.stripe.com/v3"></script>
+  <script src="shop.js"></script>
 </body>
 </html>
