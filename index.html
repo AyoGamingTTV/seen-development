@@ -1,96 +1,204 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Seen Development</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/mnt/data/seendevelop-logo.png" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <style>
-    body { margin: 0; font-family: Arial, sans-serif; background: #f7f7f7; }
-    header { background: #0b0e1a; color: white; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; }
-    header h1 { margin: 0; font-size: 28px; }
-    nav a { color: white; margin-left: 20px; text-decoration: none; font-weight: bold; }
-    .hero { background: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat; padding: 120px 40px; color: white; text-shadow: 0 0 10px rgba(0,0,0,0.7); }
-    .hero h2 { font-size: 48px; margin: 0; }
-    .hero p { font-size: 20px; max-width: 600px; }
-    section { padding: 60px 40px; max-width: 1000px; margin: auto; }
-    h3 { font-size: 30px; margin-bottom: 20px; }
-    .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-    .card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-    .shop-item { border: 1px solid #ddd; padding: 20px; border-radius: 12px; background: #fff; }
-    .shop-item button { padding: 10px 20px; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; background: #0b0e1a; color: white; }
-    footer { background: #0b0e1a; color: white; padding: 20px 40px; text-align: center; margin-top: 40px; }
+    :root {
+      --bg: #0b0e1a;
+      --text: #e0e0e0;
+      --card: #1a1f2e;
+      --accent: #4a5cff;
+      --gradient: linear-gradient(135deg, #4a5cff, #3bd1ff);
+    }
+    [data-theme="light"] {
+      --bg: #ffffff;
+      --text: #111;
+      --card: #f2f2f2;
+      --accent: #2643ff;
+      --gradient: linear-gradient(135deg, #2643ff, #4acbff);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.4s ease, color 0.4s ease;
+    }
+
+    /* HEADER */
+    header {
+      background: var(--card);
+      padding: 15px 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header img {
+      height: 50px;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* MOBILE MENU */
+    .menu-btn {
+      display: none;
+      background: var(--accent);
+      border: none;
+      color: white;
+      padding: 10px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 700px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background: var(--card);
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      }
+      nav.open { display: flex; }
+      .menu-btn { display: block; }
+    }
+
+    /* THEME TOGGLE */
+    .toggle-btn {
+      background: var(--accent);
+      border: none;
+      color: white;
+      padding: 10px 14px;
+      margin-left: 15px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    /* HERO WITH GRADIENT ANIMATION */
+    .hero {
+      padding: 120px 40px;
+      text-align: center;
+      background: linear-gradient(135deg, #162036, #0b0e1a);
+      background-size: 200% 200%;
+      animation: gradientMove 8s ease infinite;
+      color: white;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    section { padding: 60px 40px; max-width: 1100px; margin: auto; }
+    h3 { font-size: 32px; margin-bottom: 20px; color: var(--accent); }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 20px;
+      border-radius: 14px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px) scale(1.02);
+    }
+
+    .icon { font-size: 40px; margin-bottom: 10px; }
+
+    footer {
+      background: var(--card);
+      color: var(--accent);
+      padding: 20px 40px;
+      text-align: center;
+      margin-top: 40px;
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Seen Development</h1>
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#shop">Shop</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
 
-  <section class="hero">
-    <h2>See the Unseen — Because You Matter</h2>
-    <p>Your trusted development company for lawn care, snow removal, home assistance, and top-tier web & coding solutions.</p>
-  </section>
+<header>
+  <img src="/mnt/data/seendevelop-logo.png" alt="Seen Development Logo">
+  <button class="menu-btn" onclick="toggleMenu()">Menu</button>
+  <nav id="mobileMenu">
+    <a href="#services">Services</a>
+    <a href="shop.html">Shop</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <button class="toggle-btn" onclick="toggleTheme()">Theme</button>
+</header>
 
-  <section id="services">
-    <h3>Our Services</h3>
-    <div class="services">
-      <div class="card">
-        <h4>Lawn Services</h4>
-        <p>Professional lawn care, trimming, cleanup, and seasonal maintenance.</p>
-      </div>
-      <div class="card">
-        <h4>Snow Removal</h4>
-        <p>Reliable and fast snow clearing for residential and small commercial clients.</p>
-      </div>
-      <div class="card">
-        <h4>Home Assistance</h4>
-        <p>Need help moving items or reorganizing your home? We're here to help.</p>
-      </div>
-      <div class="card">
-        <h4>Web Services</h4>
-        <p>Custom websites, modern designs, SEO, and maintenance.</p>
-      </div>
-      <div class="card">
-        <h4>Coding Services</h4>
-        <p>Professional development support for coding projects and custom software.</p>
-      </div>
-    </div>
-  </section>
+<section class="hero">
+  <h2>See the Unseen — Because You Matter</h2>
+  <p>Your trusted development company for lawn care, snow removal, home assistance, and advanced web & coding solutions.</p>
+</section>
 
-  <section id="shop">
-    <h3>Shop</h3>
-    <p>Checkout is powered by Stripe using secure payment links.</p>
-    <div class="services">
-      <div class="shop-item">
-        <h4>Lawn Service – Standard Visit</h4>
-        <p>$40 per visit</p>
-        <button onclick="window.location.href='YOUR_STRIPE_PAYMENT_LINK_1'">Buy Now</button>
-      </div>
-      <div class="shop-item">
-        <h4>Snow Removal – Single Visit</h4>
-        <p>$50 per clearing</p>
-        <button onclick="window.location.href='YOUR_STRIPE_PAYMENT_LINK_2'">Buy Now</button>
-      </div>
-      <div class="shop-item">
-        <h4>1-Hour Web or Coding Support</h4>
-        <p>$60 per hour</p>
-        <button onclick="window.location.href='YOUR_STRIPE_PAYMENT_LINK_3'">Buy Now</button>
-      </div>
-    </div>
-  </section>
+<section id="services">
+  <h3>Our Services</h3>
+  <div class="services">
+    <div class="card"><div class="icon">🌱</div><h4>Lawn Services</h4><p>Professional mowing, trimming, cleanup, and seasonal care.</p></div>
+    <div class="card"><div class="icon">❄️</div><h4>Snow Removal</h4><p>Reliable snow clearing for your home or business.</p></div>
+    <div class="card"><div class="icon">📦</div><h4>Home Assistance</h4><p>Help moving items, reorganizing, and home support.</p></div>
+    <div class="card"><div class="icon">💻</div><h4>Web Services</h4><p>Custom websites, UI/UX design, SEO, and updates.</p></div>
+    <div class="card"><div class="icon">🧩</div><h4>Coding Services</h4><p>Programming support, software solutions, and automation.</p></div>
+  </div>
+</section>
 
-  <section id="contact">
-    <h3>Contact Us</h3>
-    <p>Email: support@seendevelopment.com (placeholder)</p>
-  </section>
+<section id="contact">
+  <h3>Contact Us</h3>
+  <p>Email: support@seendevelopment.com</p>
+</section>
 
-  <footer>
-    © 2025 Seen Development — See the Unseen Because You Matter
+<footer>© 2025 Seen Development — See the Unseen Because You Matter</footer>
+
+<script>
+  function toggleTheme() {
+    const current = document.documentElement.getAttribute('data-theme');
+    document.documentElement.setAttribute('data-theme', current === 'light' ? 'dark' : 'light');
+  }
+
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>
+
   </footer>
 </body>
 </html>
